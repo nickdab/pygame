@@ -1,12 +1,12 @@
-# Here's the idea for these tools:
-# You should be able to create multiple nested maps using the coordinate system objects.
-# For instance, to create a 2D world map having 100 different places, I would create
-# a coordSystem([],10,10,1) called "worldMap." I call the empty array so that it is clear that I am not
-# mapped to anything else, thus this is the highest-level map.
-
-# I could then create regional and local maps, giving them the appropriate positions when I initialize them, which then could
-# be tied to even finer detailed maps or locations. I could also simply start creating locations in the world map, or even mix the two, with some
-# areas simply being locations and others being other coordinate systems.   
+# These are some tools I am creating to help me build the map for the game. They are a work in progress.
+# I am also learning python, so I apologize in advance if I do dumb things.
+ 
+# Right now this consists of just two classes: locations and coordinate systems.
+# As I have it implemented here, a coordinate system is simply a group of locations. 
+# I'm sure there is more I could do, for instance linking a coordinate system to a location so that
+# you could, for example, enter a house (a location on a larger map) and get a coordinate system
+# for more detailed movement inside the house. Right now this is very possible to do,
+# but it has to be implemented outside of the class.    
 
 import array
 import os
@@ -37,6 +37,7 @@ class location:
 		self.isCoordSys = isCoordSys
 
 class coordSystem:
+	name = ""
 	xMax=0
 	yMax=0
 	zMax=0
@@ -45,7 +46,8 @@ class coordSystem:
 	def getLocation(self,x,y,z):
 		return self.locationArray[z][y][x]
 
-	def __init__(self,xMax,yMax,zMax):
+	def __init__(self,name,xMax,yMax,zMax):
+		self.name = name
 		self.xMax=xMax
 		self.yMax=yMax
 		self.zMax=zMax
