@@ -6,3 +6,6 @@ class character:
 	description = ""
 	health 		= 0
 	hostility 	= 0 # The higher the number, the more hostile
+	curXPos		= 0
+	curYPos		= 0
+	curZPos		= 0

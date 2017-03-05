@@ -20,6 +20,14 @@ class location:
     items = []  # I am investigating this, but apparently you can't use the "append" function with items and characters
                 # when there is an array of locations, i.e. a coordSystem locationArray. Don't know why this is.
     characters = []
+	
+    has_nEntrance = True
+    has_eEntrance = True
+    has_sEntrance = True
+    has_wEntrance = True    
+    has_uEntrance = True
+    has_dEntrance = True
+	
     isCoordSys = False
 
     def __init__(self):
